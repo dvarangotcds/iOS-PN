@@ -1,0 +1,10 @@
+{
+  "name": "test-apn",
+  "version": "1.0.0",
+  "main": "testAPN.js",
+  "author": "Diego Varangot",
+  "dependencies": {
+    "apn": "^2.2.0",
+    "dotenv": "^8.2.0"
+  }
+}
