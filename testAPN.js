@@ -1,10 +1,22 @@
 require('dotenv').config()
 var apn = require('apn');
 
+var certFilePath = process.env.CERTIFICATE_PEM_FILE_PATH
+var pkFilePath = process.env.PRIVATE_KEY_PEM_FILE_PATH
+
+if (certFilePath == null) {
+  console.log("Missing env var => CERTIFICATE_PEM_FILE_PATH")
+}
+
+if (pkFilePath == null) {
+  console.log("Missing env var => PRIVATE_KEY_PEM_FILE_PATH")
+}
+
+var prod = process.env.IS_PROD || false
 var options = {
-  cert: "aps.pem",
-  key: "private_key.pem",
-  production: false
+  cert: certFilePath,
+  key: pkFilePath,
+  production: prod
 };
 
 var apnProvider = new apn.Provider(options);
